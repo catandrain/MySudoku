@@ -1,6 +1,6 @@
 # MySudoku
 This is a project accomplished by myself  
-## gugugu  
+## test 
 * 123  
 * 899  
 * 666  
