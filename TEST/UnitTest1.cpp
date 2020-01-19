@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "CppUnitTest.h"
-#include"../mysodoku/func.cpp"
+#include"../func.cpp"
 //注意，这里的路径可能需要手动修改
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -55,12 +55,12 @@ namespace UnitTest1
 		}
 		TEST_METHOD(TestMethod7)
 		{
-			int a = dealQuestion("E://study//VS//mysodoku//mysodoku//pro.txt");//测试错误文件（问题格式错误）
+			int a = dealQuestion("pro.txt");//测试错误文件（问题格式错误）
 			Assert::AreEqual(a, -1);
 		}
 		TEST_METHOD(TestMethod8)
 		{
-			int a = dealQuestion("E://study//VS//sudokutest//ques.txt");//测试正确文件
+			int a = dealQuestion("ques.txt");//测试正确文件
 			Assert::AreEqual(a, 0);		//返回0
 		}
 		TEST_METHOD(TestMethod9)
