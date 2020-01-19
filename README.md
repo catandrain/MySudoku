@@ -16,8 +16,8 @@
 |>>>|———sudoku_finality.txt  
 |>>>|———ques.txt  
 |———TEST  
-|>>>|———pch.h
-|>>>|———pch.cpp
+|>>>|———pch.h  
+|>>>|———pch.cpp  
 |>>>|———UnitTest.cpp    //测试函数  
 |>>>|———pro.txt   //这是格式有问题的数独  
 |>>>|———ques.txt    //这是格式正确的数独  
