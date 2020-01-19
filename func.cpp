@@ -93,6 +93,7 @@ int produceOutputIntoTxt(int produce_num) {		//本函数用于生成数独终局
 	} while (next_permutation(cols + 1, cols + 3));
 
 	cout << "over or err" << endl;
+	return 0;
 }
 
 int dealQuestion(char* path) {
