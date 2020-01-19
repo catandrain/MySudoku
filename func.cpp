@@ -21,6 +21,7 @@ char out[9][9];
 
 int getBlockNum(int x, int y) {
 	//获得空格是哪一块九宫格的的，从零开始计数
+	if (x < 0 || y < 0 || x >= 9 || y>8) return -1;
 	return ((x / 3) * 3 + (y / 3));
 }
 
@@ -57,6 +58,10 @@ int produceOutputIntoTxt(int produce_num) {		//本函数用于生成数独终局
 		"567891234",
 		"234567891"
 	};
+	if (count <= 0||count>1000000) {
+		cout << "please input N which>0 and <=1000000" << endl;
+		return -1;
+	}
 	remove("./sudoku_finality.txt");
 	FILE* fp = fopen("./sudoku_finality.txt", "wt");
 	if (fp == NULL) {
@@ -110,7 +115,7 @@ int dealQuestion(char* path) {
 	int soku_num = 0;
 	do {
 		memset(shudu, 0, sizeof(shudu));
-		if (fread(shudu, sizeof(char), 162 * sizeof(char), fp) < 162) {		//读到少于一个数独问题的字符
+		if (fread(shudu, sizeof(char), 163 * sizeof(char), fp) < 162) {		//读到少于一个数独问题的字符
 			if (feof(fp)) break;//判断是否到文件尾
 			else {		//出错，终止
 				cout << "error read file" << endl;
@@ -190,7 +195,7 @@ int dealQuestion(char* path) {
 		STORE::store[STORE::count++] = '\n';
 		//将数独结果存储到大数组里，空间换时间
 	} while (!feof(fp));
-	FILE* wrfp = fopen("./sokudo.txt", "wt");
+	FILE* wrfp = fopen("./sudoku.txt", "wt");
 	fwrite(STORE::store, sizeof(char), STORE::count, wrfp);	//将大数组写入文件
 	fclose(wrfp);
 	fclose(fp);
